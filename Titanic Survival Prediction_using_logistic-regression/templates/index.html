@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic Survival Predictor</title>
+</head>
+<body>
+    <h2>🚢 Titanic Survival Prediction</h2>
+    <form method="POST" action="/predict">
+        <label>Passenger Class:</label>
+        <select name="Pclass">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select><br><br>
+
+        <label>Sex:</label>
+        <select name="Sex">
+            <option value="male">male</option>
+            <option value="female">female</option>
+        </select><br><br>
+
+        <label>Age:</label>
+        <input type="number" name="Age" min="0" max="100" step="1" value="30"><br><br>
+
+        <label>Siblings/Spouses Aboard:</label>
+        <input type="number" name="SibSp" min="0" max="10" value="0"><br><br>
+
+        <label>Parents/Children Aboard:</label>
+        <input type="number" name="Parch" min="0" max="10" value="0"><br><br>
+
+        <label>Fare:</label>
+        <input type="number" name="Fare" min="0" max="600" step="0.01" value="32.0"><br><br>
+
+        <label>Embarked:</label>
+        <select name="Embarked">
+            <option value="S">S</option>
+            <option value="C">C</option>
+            <option value="Q">Q</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if result %}
+        <h3>Result: {{ result }}</h3>
+        <p>Probability: {{ probability }}</p>
+    {% endif %}
+</body>
+</html>
