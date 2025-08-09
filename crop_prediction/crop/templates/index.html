@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-success">
+    <div class="contianer text-center mt-5">
+        <h1 class="text-white">Predict your Crop</h1>
+    </div> 
+
+    {% if prediction %}
+    <h3 class="text-center text-white">{{ prediction }}</h3>
+    {% endif %}
+
+
+    <div class="contianer ">
+       <form method="POST" action="">
+        {% csrf_token %}
+          <div class="m-3">
+        <label for="temperature" class="form-lable text-white">Temperature</label>
+        <input type="text" class="form-control" name="temperature" id="temperature">
+    </div>
+          <div class="m-3">
+        <label for="humidity" class="form-lable text-white">Humidity</label>
+        <input type="text" class="form-control" name="humidity" id="humidity">
+    </div>
+          <div class="m-3">
+        <label for="ph" class="form-lable text-white">PH lable </label>
+        <input type="text" class="form-control" name="ph" id="ph">
+    </div>
+          <div class="m-3">
+        <label for="water" class="form-lable text-white">Water Availablityw</label>
+        <input type="text" class="form-control" name="water" id="water">
+    </div>
+   
+  
+    <div class="m-3">
+        <label for="season" class="form-lable text-white">Select Season</label>
+
+        <select name="season" id="season" class="form-select">
+            <option value="3.0">Winter</option>
+            <option value="1.0">Spring</option>
+            <option value="2.0">Summer</option>
+            <option value="0.0">Rainy</option>
+        </select>
+    </div>
+    <div class="m-3">
+        <button type="submit" class="btn btn-light ">Predict Now</button>
+    </div>
+     </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
